@@ -51,7 +51,6 @@ def receive_attack():
 
 @app.route('/api/attacks', methods=['GET'])
 def get_attacks():
-    """Отдаёт все атаки для дашборда."""
     conn = sqlite3.connect(DB_FILE)
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM attacks ORDER BY id DESC")
