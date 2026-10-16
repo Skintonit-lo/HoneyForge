@@ -9,7 +9,6 @@ CORS(app)
 DB_FILE = "attacks.db" 
 
 def init_db():
-    """Создаёт таблицу, если её ещё нет."""
     conn = sqlite3.connect(DB_FILE)
     cursor = conn.cursor()
     cursor.execute("""
@@ -27,7 +26,6 @@ def init_db():
 
 @app.route('/api/attacks', methods=['POST'])
 def receive_attack():
-    """Принимает данные от агента и сохраняет в базу."""
     data = request.get_json() 
     
     if not data:

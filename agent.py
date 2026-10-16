@@ -7,7 +7,6 @@ CENTER_URL = "http://127.0.0.1:5000/api/attacks"
 LAST_POSITION = 0 
 
 def send_to_center(data):
-    """Отправляет одну запись в центр."""
     try:
         response = requests.post(CENTER_URL, json=data, timeout=5)
         if response.status_code == 200:
@@ -18,7 +17,6 @@ def send_to_center(data):
         print(f"[-] Центр недоступен: {e}")
 
 def tail_log():
-    """Читает новые строки из лога и отправляет в центр."""
     global LAST_POSITION
     
     try:
